@@ -8,12 +8,12 @@ public class SAFactoryImp extends SAFactory {
 	@Override
 	public SAPlayer getSAPlayer() {
 		
-		if (saMap.contains(SAPLAYER)) {
-			return (SAPlayer) saMap.get(SAPLAYER);
-		}
-		else {
+//		if (saMap.contains(SAPLAYER)) {
+//			return (SAPlayer) saMap.get(SAPLAYER);
+//		}
+//		else {
 			return new SAPlayerImp();
-		}
+//		}
 	}
 
 }

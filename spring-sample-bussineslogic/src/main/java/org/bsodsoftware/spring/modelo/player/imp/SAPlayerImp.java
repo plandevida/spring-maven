@@ -10,16 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class SAPlayerImp implements SAPlayer {
 	
 	@Autowired
-	private PlayerDao playerDao;
+	private PlayerDao playerDaoB;
 	
-	public void setPlayerDao(PlayerDao playerDao) {
-		this.playerDao = playerDao;
+	public void setPlayerDaoB(PlayerDao playerDao) {
+		this.playerDaoB = playerDao;
 	}
 
 	public Player addPlayer(Player playerToAdd) throws Exception {
 		
 		Player player = new Player();
-		player.setPlayerFirstName(playerDao.save(playerToAdd));
+		
+		String nombre = "";
+		
+		if ( playerDaoB == null) System.out.println("PLAYER DAO NULO");
+			
+		playerDaoB.save(playerToAdd);
+		
+		player.setPlayerFirstName(nombre);
 		
 		return player;
 	}

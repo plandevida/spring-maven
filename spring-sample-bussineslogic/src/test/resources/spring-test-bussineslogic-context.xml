@@ -19,18 +19,22 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="org.bsodsoftware.spring.modelo.entidades" />
+		<property name="packagesToScan" value="org.bsodsoftware.spring.modelo" />
 	</bean>
 	
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="playerDao" class="org.bsodsoftware.spring.integracion.dao.imp.PlayerDaoImp">
+	<bean id="playerDaoB" class="org.bsodsoftware.spring.integracion.dao.imp.PlayerDaoImp">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 	
-	<bean id="saMap" class="org.bsodsoftware.spring.modelo.player.imp.SAPlayerImp">
-		<property name="playerDao" ref="playerDao"></property>
+	<bean id="saPlayer" class="org.bsodsoftware.spring.modelo.player.imp.SAPlayerImp">
+		<property name="playerDaoB" ref="playerDaoB"></property>
 	</bean>
+	
+<!-- 	<bean id="saMap" class="org.bsodsoftware.spring.modelo.player.imp.SAPlayerImp"> -->
+<!-- 		<property name="playerDao" ref="playerDao"></property> -->
+<!-- 	</bean> -->
 </beans>

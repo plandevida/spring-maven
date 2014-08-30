@@ -8,10 +8,9 @@ import javax.persistence.Table;
 @Entity(name = "Player")
 @Table(name = "Player")
 public class Player implements java.io.Serializable {
-	/**
-	 * serialVersionUID
-	 */
+
 	private static final long serialVersionUID = 6485105191418783803L;
+	
 	@Id
 	@Column(name = "playerId", length = 50)
 	private String playerId;
